@@ -157,7 +157,6 @@ id unread;
         NSString *token = call.arguments[@"token"];
         if (token != nil) {
             NSData * tokenData = [self dataFromHexString:token];
-             NSLog(@"Device token1 %@", tokenData);
             [Intercom setDeviceToken:tokenData];
             result(@"Token sent to Intercom");
         }
@@ -218,7 +217,6 @@ id unread;
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     NSString * token = [self stringWithDeviceToken:deviceToken];
-     NSLog(@"Device token0 %@", deviceToken);
     [_channel invokeMethod:@"iosDeviceToken" arguments:token];
 }
 
